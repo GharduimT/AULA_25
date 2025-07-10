@@ -1,14 +1,18 @@
 from datetime import datetime
 import pandas as pd
 import polars as pl
-
+#utilizando o pl.scan_parquet vai printar um plano/rota de execução
 ENDERECO_DADOS = '../../bronze/'
 
 try:
     print ('Iniciando a leitura do arquivo Parquet')
     inicio = datetime.now()
+    
+    
+    df_bolsa_familia = pl.scan_parquet(ENDERECO_DADOS + 'bolsa_familia.parquet')
 
-    #  df_bolsa_familia = pl.read_parquet(ENDERECO_DADOS + 'bolsa_familia.parquet')
+    df_bolsa_familia = df_bolsa_familia.collect()
+
     print(df_bolsa_familia.head())
 
     
