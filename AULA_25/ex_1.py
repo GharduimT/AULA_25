@@ -35,6 +35,9 @@ try:
 
     df_bolsa_familia = pl.read_parquet(ENDERECO_DADOS + 'bolsa_familia.parquet')
     print(df_bolsa_familia.head())
+
+    print(df_bolsa_familia.columns) #  Mostrar as Colunas
+    print(df_bolsa_familia.dtypes) # Tipos de dados
     
     final = datetime.now()
     print(f'Tempo de Execução: {final - inicio}')
